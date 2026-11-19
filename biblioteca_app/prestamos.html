@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#173b32">
+    <title>Mis préstamos · Biblioteca Municipal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="tailwind.generated.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-view="all">
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="Navegación principal">
+            <a class="brand" href="index.html" aria-label="Biblioteca Municipal, inicio">
+                <span class="brand-icon"><i class="fa-solid fa-book-open"></i></span>
+                <span class="brand-copy"><span class="eyebrow">SENA · ADSO</span><span class="brand-name">Biblioteca <em>Municipal</em></span></span>
+            </a>
+            <div class="nav-right">
+                <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                <a class="nav-link active" href="prestamos.html"><i class="fa-solid fa-book-bookmark"></i> Préstamos</a>
+                <details class="menu-dropdown">
+                    <summary aria-label="Abrir menú"><span class="avatar">B</span><i class="fa-solid fa-chevron-down"></i></summary>
+                    <div class="dropdown-panel">
+                        <p class="dropdown-caption">ESPACIO DE LECTURA</p>
+                        <a href="index.html#nuevo-prestamo"><i class="fa-solid fa-circle-plus"></i> Registrar préstamo</a>
+                        <a href="#prestamos"><i class="fa-solid fa-list-check"></i> Ver mis préstamos</a>
+                        <div class="dropdown-divider"></div>
+                        <span class="dropdown-note"><i class="fa-solid fa-seedling"></i> Un libro, una nueva aventura</span>
+                    </div>
+                </details>
+            </div>
+        </nav>
+    </header>
+    <main id="inicio" class="page-shell all-loans-page">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <div class="hero-kicker"><span class="live-dot"></span> TU RINCÓN FAVORITO PARA LEER</div>
+                <h1 id="hero-title">Cada libro abre<br>una <em>nueva historia.</em></h1>
+                <p>Todos tus préstamos en un solo lugar. Busca un libro, revisa su estado o vuelve a tu próxima aventura.</p>
+                <a class="hero-cta" href="index.html#nuevo-prestamo">Registrar un préstamo <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="hero-footnote"><i class="fa-solid fa-sparkles"></i> Las mejores historias te están esperando</div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <div class="sun-disc"></div><div class="art-spark spark-one">✳</div><div class="art-spark spark-two">✦</div>
+                <div class="book-stack">
+                    <div class="book book-back"><span>EL ARTE DE<br>LEER DESPACIO</span><i></i></div>
+                    <div class="book book-middle"><span>PEQUEÑOS<br>UNIVERSOS</span><i></i></div>
+                    <div class="book book-front"><span>DONDE NACEN<br>LAS HISTORIAS</span><i></i></div>
+                </div>
+                <div class="art-caption"><span class="caption-line"></span> BIBLIOTECA · DESDE SIEMPRE</div>
+            </div>
+        </section>
+        <section id="prestamos" class="panel loans-panel all-loans-panel">
+            <div class="loans-heading">
+                <div><span class="section-kicker">TU ESTANTERÍA PERSONAL</span><h2>Todos mis préstamos <span id="loan-count" class="count-badge">0</span></h2></div>
+                <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><label class="sr-only" for="search-loan">Buscar por libro o lector</label><input type="search" id="search-loan" placeholder="Buscar en tu lista..."></div>
+            </div>
+            <div id="loading" class="loading hidden"><i class="fa-solid fa-book-open-reader fa-bounce"></i><span>Cargando tu estantería...</span></div>
+            <div id="error-message" class="error-message hidden"><i class="fa-solid fa-triangle-exclamation"></i><div><strong>No pudimos conectar con el servidor</strong><p>Verifica que la API esté ejecutándose en <b>http://localhost:8000</b>.</p></div></div>
+            <div id="loans-grid" class="loans-grid"></div>
+            <div id="empty-state" class="empty-state hidden"><div class="empty-icon"><i class="fa-solid fa-book-open"></i></div><h3>No hay préstamos todavía</h3><p>Tu próxima historia está a un préstamo de distancia.</p><a href="index.html#nuevo-prestamo">Registrar mi primer libro <i class="fa-solid fa-arrow-right"></i></a></div>
+            <div class="loans-footer"><a class="see-more" href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</a><span>Un libro, una nueva aventura</span></div>
+        </section>
+        <footer class="site-footer"><a class="footer-brand" href="index.html"><i class="fa-solid fa-book-open"></i> Biblioteca Municipal</a><span><i class="fa-solid fa-heart"></i> Hecho para quienes aman leer</span><span>SENA · ADSO 2026</span></footer>
+    </main>
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+    <script src="app.js"></script>
+</body>
+</html>
